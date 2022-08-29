@@ -1,0 +1,21 @@
+.menu ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+.menu ul li a{
+    color: rgb(229, 236, 243);
+    text-decoration: none;
+    font-size: 20px;
+    background-color: rgb(253, 87, 5);
+    
+}
+.menu ul li a:hover{
+    color: rgb(9, 9, 8);
+}
+.side_bar{
+
+   min-height:  5000px; 
+   width: 20%;
+   background-color: rgb(234, 148, 235);
+}

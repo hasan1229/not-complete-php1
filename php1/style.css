@@ -1,0 +1,176 @@
+
+
+
+.calculator {
+    
+    top: 50%;
+    left: 50%;
+    padding: 5px;
+    border-radius: 1em;
+    height: 580px;
+    width: 600px;
+    margin: auto;
+    background-color: #373a49;
+    box-shadow: rgb(171 46 46 / 19%) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.display-box {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #dedbec;
+    
+    color: #201f1f;
+    border-radius: 5px;
+    width: 100%;
+    height: 65%;
+}
+#btn {
+    background-color: #e1025d;
+}
+input {
+    background-color: #ac3cfb;
+    color: #e8e7e7;
+    width: 100%;
+    border-radius: 5px;
+    height: 75%;
+    
+}
+
+
+.btn-primary{
+
+
+padding: 6px 12px;
+font-size:14px ;
+font-weight: 400;
+cursor: pointer;
+border: 1px solid transparent;
+background-color: #337ab7;
+color: #fff;
+border-radius: 2px;
+
+
+
+}
+
+
+
+
+rthrsh
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+body{background-color: #dedbec;}
+.cform{
+
+width: 100%;
+height: 14px;
+padding: 6px 12px;
+font-size:14px ;
+color:rgb(36, 40, 40);
+background-color: #fff;
+border:1px solid #ccc;
+border-radius: 4px;
+
+}
+.btn_primary{
+
+
+padding: 6px 12px;
+font-size:14px ;
+font-weight: 400;
+cursor: pointer;
+border: 1px solid transparent;
+background-color: #337ab7;
+color: #fff;
+border-radius: 6px;
+
+
+
+}
+label{
+	font-size :18px;
+}
+textarea.cform{
+	height:auto;
+}
+
+.container{
+	margin-left:30%;
+	width: 400px;
+	margin-top:60%
+	background-color:#fff;
+	padding:30px
+	padding-right:60px;
+	box-shadow:10px 5px 5px grey;
+}
+.success{
+margin:5x auto;
+border-radius:5px;
+border:5px solid #fff;
+font-size:20px;
+padding:10px;
+box-shadow:10px 5px 5px grey;
+
+}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+
+	<?php
+ if(isset($_POST['submit_form']))
+			{ 
+          $name=$_POST['name']; 
+       $email=$_POST['email']; 
+        $msg=$_POST['msg']; 
+       $phone=$_POST['phone']; 
+       $FromName="Techno Smarter";
+$FromEmail="info@yourdomain.com";
+$ReplyTo=$email;
+$toemail="rabialhasan.1229@gmail.com";
+$subject="Rabial Hasan Contact form"; 
+$message='Name:-'.$name.'<br>Email :-' .$email.'<br> Phone No:-'.$phone.'<br> Message:-'.$msg;
+$headers = "MIME-Version: 1.0\n";
+$headers .= "Content-type: text/html; charset=iso-8859-1\n";
+$headers .= "From: ".$FromName." <".$FromEmail.">\n";
+$headers .= "Reply-To: ".$ReplyTo."\n";
+$headers .= "X-Sender: <".$FromEmail.">\n";
+$headers .= "X-Mailer: PHP\n";
+$headers .= "X-Priority: 1\n";
+$headers .= "Return-Path: <".$FromEmail.">\n";
+   if(mail($toemail, $subject, $message, $headers,'-f'.$FromEmail) ){
+          $hide=1;
+        
+         echo '<div class="success"><center><span style="font-size:100px;">&#9989;</span></center> <br> Thank you <strong>'.$name.',</strong> Your message has been sent. We will reply soon as possible. </div> '; 
+	      
+	} else {
+		echo "The server failed to send the message. Please try again later or Make sure , you are using live server for email.";
+} 
+
+			}
+		
+		?> 
+	
+<form action="" method="POST">
+<label>Name :-</label>
+<input type="text" class="cform" name="name" required>
+<label>Email :-</label>
+<input type="email" class="cform" name="email" required>
+<label>Number :-</label>
+<input type="number" class="cform" name="phone" required>
+<label>Message :-</label>
+<textarea cols="10" rows="5" class="cform" name="msg" required></textarea>
+<label>submit :-</label>
+<input type="submit" class="btn_primary" name="submit_form" required>
+
+</form>
+<div>
+</body>
+</html>
